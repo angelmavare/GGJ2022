@@ -36,7 +36,10 @@ private void Awake()
 
 
 
-public void ButtonClick() {
+public void ButtonClick(string ch) {
+        if (ch == "" || ch == null) {
+            ch = character;
+        }
 
         if (Input.touchCount > 0)
         {
@@ -45,9 +48,9 @@ public void ButtonClick() {
             {
                 touchPosition = Input.GetTouch(0).position;
 
-                if ( character == "red")
+                if ( ch == "red")
                 lane += 1;
-                if ( character == "blue")
+                if ( ch == "blue")
                 lane -= 1;
 
                 lane = Mathf.Clamp(lane, -2, 2); // change to how many lanes you have
@@ -56,10 +59,10 @@ public void ButtonClick() {
 
         //float laneWidth = 10f; // change from 2 if you need to
         float laneTarget = 0; //lane * laneWidth;
-        if (character == "red") {
+        if (ch == "red") {
             laneTarget = 50;
         }
-        else if(character == "blue" ){
+        else if(ch == "blue" ){
             laneTarget = -50;
         }
 
@@ -69,7 +72,13 @@ public void ButtonClick() {
 
     private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.W)) {
+            ButtonClick("red");
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            ButtonClick("blue");
+        }
     }
 
     private void FixedUpdate()

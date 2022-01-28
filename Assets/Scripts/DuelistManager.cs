@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DuelistManager : MonoBehaviour
 {
-    public float speed = 40;
+    public float speed = 60;
     public float dirX;
     public string character;
     private Rigidbody2D rb2D;

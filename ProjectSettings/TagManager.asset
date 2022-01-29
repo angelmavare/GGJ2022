@@ -8,6 +8,8 @@ TagManager:
   - PlayerBlue
   - AreaRed
   - AreaBlue
+  - ScoreRed
+  - ScoreBlue
   layers:
   - Default
   - TransparentFX

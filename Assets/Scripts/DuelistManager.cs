@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class DuelistManager : MonoBehaviour
 {
-    public float speed = 60;
+    public float speed = 50;
     public float dirX;
     public string character;
     private Rigidbody2D rb2D;
@@ -19,8 +19,12 @@ public class DuelistManager : MonoBehaviour
     private Vector2 originalPosRed;
     private Vector2 originalPosBlue;
     private int lane = 0;
-
     private string areaTag;
+    //------------------------
+    public int scoreRed;
+    public Text TXTScoreRed;
+    public int scoreBlue;
+    public Text TXTScoreBlue;
     //public GameObject aviso;
 
     // Start is called before the first frame update
@@ -34,7 +38,8 @@ public class DuelistManager : MonoBehaviour
         moveBlue = false;
         triggerCharacter = false;
 
-        
+        scoreRed = PlayerPrefs.GetInt("HighScoreRed");
+        scoreBlue = PlayerPrefs.GetInt("HighScoreBlue");
 
     }
 
@@ -57,6 +62,17 @@ private void Awake()
         if (collision.gameObject.tag == areaTag)
         {
             triggerCharacter = true;
+            if (areaTag == "AreaRed") {
+                scoreBlue++;
+                PlayerPrefs.SetInt("HighScoreBlue", scoreBlue);
+            }
+            if (areaTag == "AreaBlue")
+            {
+                scoreRed++;
+                PlayerPrefs.SetInt("HighScoreRed", scoreRed);
+                
+            }
+
             SceneManager.LoadScene("MainScene");
             // aviso.SetActive(true);
             //GameObject.FindGameObjectWithTag("PlayerRed").transform.position = originalPosRed;
@@ -111,6 +127,10 @@ private void Awake()
         {
             ButtonClick("blue");
         }
+
+        TXTScoreRed.text = ""+scoreRed;
+        TXTScoreBlue.text = ""+scoreBlue;
+
     }
 
     private void FixedUpdate()

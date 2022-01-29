@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 
@@ -11,18 +12,27 @@ public class DuelistManager : MonoBehaviour
     private Rigidbody2D rb2D;
     private bool moveRed;
     private bool moveBlue;
+    private bool triggerCharacter;
     //------------------------
     private Vector2 targetPosition;
     private Vector2 touchPosition;
+    private Vector2 originalPosRed;
+    private Vector2 originalPosBlue;
     private int lane = 0;
+
+    private string areaTag;
+    //public GameObject aviso;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-
+        //originalPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+        originalPosRed = new Vector2(GameObject.FindGameObjectWithTag("PlayerRed").transform.position.x, GameObject.FindGameObjectWithTag("PlayerRed").transform.position.y);
+        originalPosBlue = new Vector2(GameObject.FindGameObjectWithTag("PlayerBlue").transform.position.x, GameObject.FindGameObjectWithTag("PlayerBlue").transform.position.y);
         moveRed = false;
         moveBlue = false;
+        triggerCharacter = false;
 
         
 
@@ -34,9 +44,30 @@ private void Awake()
     targetPosition = transform.position;
 }
 
+ private void OnTriggerEnter2D(Collider2D collision)
+{
+        if (character == "red")
+        {
+            areaTag = "AreaRed";
+        }
+        if( character == "blue")
+        {
+            areaTag = "AreaBlue";
+        }
+        if (collision.gameObject.tag == areaTag)
+        {
+            triggerCharacter = true;
+            SceneManager.LoadScene("MainScene");
+            // aviso.SetActive(true);
+            //GameObject.FindGameObjectWithTag("PlayerRed").transform.position = originalPosRed;
+            //GameObject.FindGameObjectWithTag("PlayerBlue").transform.position = originalPosBlue;
+        }
+        
+}
 
 
-public void ButtonClick(string ch) {
+
+    public void ButtonClick(string ch) {
         if (ch == "" || ch == null) {
             ch = character;
         }
@@ -54,6 +85,7 @@ public void ButtonClick(string ch) {
                 lane -= 1;
 
                 lane = Mathf.Clamp(lane, -2, 2); // change to how many lanes you have
+                Debug.Log("Lane: " + lane);
             }
         }
 
@@ -84,6 +116,5 @@ public void ButtonClick(string ch) {
     private void FixedUpdate()
     {
         rb2D.MovePosition(targetPosition);
-
     }
 }

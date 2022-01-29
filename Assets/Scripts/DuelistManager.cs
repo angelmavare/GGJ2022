@@ -30,6 +30,8 @@ public class DuelistManager : MonoBehaviour
     public GameObject soundAttackBlue;
     public GameObject soundAttackLongRed;
     public GameObject soundAttackLongBlue;
+    private int soundAttackCountRed = 0;
+    private int soundAttackCountBlue = 0;
     //public GameObject aviso;
 
     // Start is called before the first frame update
@@ -100,10 +102,14 @@ private void Awake()
             {
                 touchPosition = Input.GetTouch(0).position;
 
-                if ( ch == "red")
-                lane += 1;
-                if ( ch == "blue")
-                lane -= 1;
+                if (ch == "red") {
+                    lane += 1;
+                }
+
+                if (ch == "blue") {
+                    lane -= 1;
+                }
+                
                 
 
                 lane = Mathf.Clamp(lane, -2, 2); // change to how many lanes you have
@@ -113,27 +119,46 @@ private void Awake()
 
         //float laneWidth = 10f; // change from 2 if you need to
         float laneTarget = 0; //lane * laneWidth;
+        
         if (ch == "red") {
+            soundAttackCountRed++;
             laneTarget = 50;
+            Instantiate(soundAttackRed);
+            if (soundAttackCountRed > 6) {
+                Instantiate(soundAttackLongRed);
+                soundAttackCountRed = 0;
+            }
         }
         else if(ch == "blue" ){
+            soundAttackCountBlue++;
             laneTarget = -50;
+            Instantiate(soundAttackBlue);
+            if (soundAttackCountBlue > 6)
+            {
+                Instantiate(soundAttackLongBlue);
+                soundAttackCountBlue = 0;
+            }
         }
 
         targetPosition.x = Mathf.MoveTowards(targetPosition.x, laneTarget, speed * Time.deltaTime);
         float tilt = laneTarget - targetPosition.x;
+
+
     }
 
     private void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.W)) {
+
             ButtonClick("red");
-            Instantiate(soundAttackRed);
+            //Instantiate(soundAttackRed);
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
+
             ButtonClick("blue");
-            Instantiate(soundAttackBlue);
+            //Instantiate(soundAttackBlue);
         }
 
         TXTScoreRed.text = ""+scoreRed;

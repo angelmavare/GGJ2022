@@ -1907,6 +1907,14 @@ PrefabInstance:
       propertyPath: soundAttackBlue
       value: 
       objectReference: {fileID: 5245924166094907378, guid: 2915a31cae24af245a430ffb16d010f3, type: 3}
+    - target: {fileID: 2178754674854691907, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
+      propertyPath: soundAttackLongRed
+      value: 
+      objectReference: {fileID: 7293819478769257283, guid: 4fcc16138af5f374da19225a37381453, type: 3}
+    - target: {fileID: 2178754674854691907, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
+      propertyPath: soundAttackLongBlue
+      value: 
+      objectReference: {fileID: 7293819478769257283, guid: 4fcc16138af5f374da19225a37381453, type: 3}
     - target: {fileID: 2178754674854691916, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
       propertyPath: m_Name
       value: DuelistBlue
@@ -1984,5 +1992,13 @@ PrefabInstance:
       propertyPath: soundAttackBlue
       value: 
       objectReference: {fileID: 5245924166094907378, guid: 2915a31cae24af245a430ffb16d010f3, type: 3}
+    - target: {fileID: 4398769579384395431, guid: f3e32a3a504576d4ab9914f562b57c41, type: 3}
+      propertyPath: soundAttackLongRed
+      value: 
+      objectReference: {fileID: 7293819478769257283, guid: 4fcc16138af5f374da19225a37381453, type: 3}
+    - target: {fileID: 4398769579384395431, guid: f3e32a3a504576d4ab9914f562b57c41, type: 3}
+      propertyPath: soundAttackLongBlue
+      value: 
+      objectReference: {fileID: 7293819478769257283, guid: 4fcc16138af5f374da19225a37381453, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3e32a3a504576d4ab9914f562b57c41, type: 3}

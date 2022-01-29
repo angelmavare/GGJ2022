@@ -20,11 +20,16 @@ public class DuelistManager : MonoBehaviour
     private Vector2 originalPosBlue;
     private int lane = 0;
     private string areaTag;
-    //------------------------
+    //SCORE------------------------
     public int scoreRed;
     public Text TXTScoreRed;
     public int scoreBlue;
     public Text TXTScoreBlue;
+    //SOUNDS------------------------
+    public GameObject soundAttackRed;
+    public GameObject soundAttackBlue;
+    public GameObject soundAttackLongRed;
+    public GameObject soundAttackLongBlue;
     //public GameObject aviso;
 
     // Start is called before the first frame update
@@ -99,6 +104,7 @@ private void Awake()
                 lane += 1;
                 if ( ch == "blue")
                 lane -= 1;
+                
 
                 lane = Mathf.Clamp(lane, -2, 2); // change to how many lanes you have
                 Debug.Log("Lane: " + lane);
@@ -122,10 +128,12 @@ private void Awake()
     {
         if (Input.GetKeyDown(KeyCode.W)) {
             ButtonClick("red");
+            Instantiate(soundAttackRed);
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             ButtonClick("blue");
+            Instantiate(soundAttackBlue);
         }
 
         TXTScoreRed.text = ""+scoreRed;

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SplashManager : MonoBehaviour
+public class CreditsManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("GoToMenuScene",2.5f);
+        
     }
 
     // Update is called once per frame
@@ -17,9 +17,8 @@ public class SplashManager : MonoBehaviour
         
     }
 
-    public void GoToMenuScene()
+    public void GoToScene(string sceneName)
     {
-        SceneManager.LoadScene("MenuScene");
+        SceneManager.LoadScene(sceneName);
     }
-
 }

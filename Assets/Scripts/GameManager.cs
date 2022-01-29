@@ -16,7 +16,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (PlayerPrefs.GetInt("HighScoreRed") >= 3) {
+            SceneManager.LoadScene("MenuScene");
+        }
+        if (PlayerPrefs.GetInt("HighScoreBlue") >= 3)
+        {
+            SceneManager.LoadScene("MenuScene");
+        }
     }
 
     public void GoToScene(string sceneName)

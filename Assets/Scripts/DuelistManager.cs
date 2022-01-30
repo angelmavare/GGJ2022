@@ -66,11 +66,17 @@ public class DuelistManager : MonoBehaviour
     public string blueKey;
     [SerializeField] float timeToChangeButton = 5f;
     float timerValue;
+    [SerializeField] float timeToStart = 3f;
+    float timerStart;
+    private bool fightHasStarted;
+
     //public GameObject aviso;
 
     // Start is called before the first frame update
     void Start()
     {        
+        timerStart = timeToStart;
+        fightHasStarted = false;
         rb2D = GetComponent<Rigidbody2D>();
         //originalPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
         originalPosRed = new Vector2(GameObject.FindGameObjectWithTag("PlayerRed").transform.position.x, GameObject.FindGameObjectWithTag("PlayerRed").transform.position.y);
@@ -200,52 +206,56 @@ private void Awake()
     private void Update()
     {
         UpdateTimer();
-        switch(redKey) 
-        {
-            case "W":
-                if (Input.GetKeyDown(KeyCode.W)) {
-                    ButtonClick("red");
-                }
-                break;
-            case "D":
-                if (Input.GetKeyDown(KeyCode.D)) {
-                    ButtonClick("red");
-                }   
-                break;
-            case "S":
-                if (Input.GetKeyDown(KeyCode.S)) {
-                    ButtonClick("red");
-                }
-                break;
-            case "A":
-                if (Input.GetKeyDown(KeyCode.A)) {
-                    ButtonClick("red");
-                }
-                break;
+        UpdateTimerStart();
+        if (fightHasStarted) {
+            switch(redKey) 
+            {
+                case "W":
+                    if (Input.GetKeyDown(KeyCode.W)) {
+                        ButtonClick("red");
+                    }
+                    break;
+                case "D":
+                    if (Input.GetKeyDown(KeyCode.D)) {
+                        ButtonClick("red");
+                    }   
+                    break;
+                case "S":
+                    if (Input.GetKeyDown(KeyCode.S)) {
+                        ButtonClick("red");
+                    }
+                    break;
+                case "A":
+                    if (Input.GetKeyDown(KeyCode.A)) {
+                        ButtonClick("red");
+                    }
+                    break;
+            }
+            switch(blueKey) 
+            {
+                case "↑":
+                    if (Input.GetKeyDown(KeyCode.UpArrow)) {
+                        ButtonClick("blue");
+                    }
+                    break;
+                case "←":
+                    if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+                        ButtonClick("blue");
+                    }   
+                    break;
+                case "→":
+                    if (Input.GetKeyDown(KeyCode.RightArrow)) {
+                        ButtonClick("blue");
+                    }
+                    break;
+                case "↓":
+                    if (Input.GetKeyDown(KeyCode.DownArrow)) {
+                        ButtonClick("blue");
+                    }
+                    break;
+            }
         }
-        switch(blueKey) 
-        {
-            case "↑":
-                if (Input.GetKeyDown(KeyCode.UpArrow)) {
-                    ButtonClick("blue");
-                }
-                break;
-            case "←":
-                if (Input.GetKeyDown(KeyCode.LeftArrow)) {
-                    ButtonClick("blue");
-                }   
-                break;
-            case "→":
-                if (Input.GetKeyDown(KeyCode.RightArrow)) {
-                    ButtonClick("blue");
-                }
-                break;
-            case "↓":
-                if (Input.GetKeyDown(KeyCode.DownArrow)) {
-                    ButtonClick("blue");
-                }
-                break;
-        }
+        
         TXTScoreRed.text = ""+scoreRed;
         TXTScoreBlue.text = ""+scoreBlue;
 
@@ -291,6 +301,24 @@ private void Awake()
         {
             UpdateButtonPositions();
             timerValue = timeToChangeButton;
+        }
+    }
+
+    void UpdateTimerStart()
+    {
+        timerStart -= Time.deltaTime;
+        var timerText = GameObject.FindGameObjectWithTag("TimerStart");
+        
+        if(((int)timerStart) < 0)
+        {
+            timerText.GetComponent<UnityEngine.UI.Text>().text = "";
+            fightHasStarted = true;
+        }
+        else if (((int)timerStart) == 0) {
+            timerText.GetComponent<UnityEngine.UI.Text>().text = "FIGHT!";
+        }
+        else {
+            timerText.GetComponent<UnityEngine.UI.Text>().text = ((int)timerStart).ToString();
         }
     }
 

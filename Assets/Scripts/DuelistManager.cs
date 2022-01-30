@@ -30,13 +30,45 @@ public class DuelistManager : MonoBehaviour
     public GameObject soundAttackBlue;
     public GameObject soundAttackLongRed;
     public GameObject soundAttackLongBlue;
+    public GameObject blueDynamic;
+    public GameObject redDynamic;
     private int soundAttackCountRed = 0;
     private int soundAttackCountBlue = 0;
+
+    public Vector3[] redButtonPositions = {
+        new Vector3(-809,5,0),
+        new Vector3(-481,351,0),
+        new Vector3(-699,-294,0),
+        new Vector3(-249,-294,0),
+    };
+
+    public string[] redButtonTexts = {
+        "D",
+        "W",
+        "A",
+        "S"
+    };
+
+    public Vector3[] blueButtonPositions = {
+        new Vector3(810,-5,0),
+        new Vector3(481,351,0),
+        new Vector3(699,-294,0),
+        new Vector3(249,-294,0),
+    };
+
+    public string[] blueButtonTexts = {
+        "←",
+        "↑",
+        "→",
+        "↓"
+    };
+    [SerializeField] float timeToChangeButton = 5f;
+    float timerValue;
     //public GameObject aviso;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {        
         rb2D = GetComponent<Rigidbody2D>();
         //originalPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
         originalPosRed = new Vector2(GameObject.FindGameObjectWithTag("PlayerRed").transform.position.x, GameObject.FindGameObjectWithTag("PlayerRed").transform.position.y);
@@ -47,6 +79,22 @@ public class DuelistManager : MonoBehaviour
 
         scoreRed = PlayerPrefs.GetInt("HighScoreRed");
         scoreBlue = PlayerPrefs.GetInt("HighScoreBlue");
+        var redButton = GameObject.FindGameObjectWithTag("RedButton");
+        var blueButton = GameObject.FindGameObjectWithTag("BlueButton");
+        blueButtonPositions = new Vector3[] {
+            new Vector3(810,-5,0),
+            new Vector3(481,351,0),
+            new Vector3(699,-294,0),
+            new Vector3(249,-294,0),
+        };
+        redButtonPositions = new Vector3[] {
+            new Vector3(-809,5,0),
+            new Vector3(-481,351,0),
+            new Vector3(-699,-294,0),
+            new Vector3(-249,-294,0),
+        };
+        redButton.transform.localPosition = redButtonPositions[0];
+        blueButton.transform.localPosition = blueButtonPositions[0];
 
     }
 
@@ -148,7 +196,7 @@ private void Awake()
 
     private void Update()
     {
-        
+        UpdateTimer();
         if (Input.GetKeyDown(KeyCode.W)) {
 
             ButtonClick("red");
@@ -170,4 +218,57 @@ private void Awake()
     {
         rb2D.MovePosition(targetPosition);
     }
+
+    private void HideDynamics()
+    {
+        blueDynamic = GameObject.FindGameObjectWithTag("BlueDynamic");
+        blueDynamic.GetComponent<Renderer>().enabled = false;
+        redDynamic = GameObject.FindGameObjectWithTag("RedDynamic");
+        redDynamic.GetComponent<Renderer>().enabled = false;
+    }
+
+    private void ShowDynamics()
+    {
+        /*blueDynamic = GameObject.FindGameObjectWithTag("BlueDynamic");
+        blueDynamic.GetComponent<Renderer>().enabled = true;
+        redDynamic = GameObject.FindGameObjectWithTag("RedDynamic");
+        redDynamic.GetComponent<Renderer>().enabled = true;*/
+        blueDynamic.SetActive(true);
+        redDynamic.SetActive(true);
+    }
+
+    public GameObject ShowObjectByTag(string tagName)
+    {
+        return GameObject.FindGameObjectWithTag(tagName);
+    }
+
+    public void CancelTimer()
+    {
+        timerValue = 0;
+    }
+
+    void UpdateTimer()
+    {
+        timerValue -= Time.deltaTime;
+
+        if(timerValue <= 0)
+        {
+            UpdateButtonPositions();
+            timerValue = timeToChangeButton;
+        }
+    }
+
+    void UpdateButtonPositions()
+    {
+        Debug.Log("updating");
+        var redButton = GameObject.FindGameObjectWithTag("RedButton");
+        var blueButton = GameObject.FindGameObjectWithTag("BlueButton");
+        int blueIndex = Random.Range(0, 3);
+        int redIndex = Random.Range(0, 3);
+        Debug.Log(redButtonPositions[redIndex]);
+        Debug.Log(blueButtonPositions[blueIndex]);
+        redButton.transform.localPosition = redButtonPositions[redIndex];
+        blueButton.transform.localPosition = blueButtonPositions[blueIndex];
+    }
+
 }

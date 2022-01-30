@@ -17,11 +17,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (PlayerPrefs.GetInt("HighScoreRed") >= 3) {
-            SceneManager.LoadScene("MenuScene");
+            SceneManager.LoadScene("VictoryScene");
         }
         if (PlayerPrefs.GetInt("HighScoreBlue") >= 3)
         {
-            SceneManager.LoadScene("MenuScene");
+            SceneManager.LoadScene("VictoryScene");
         }
     }
 

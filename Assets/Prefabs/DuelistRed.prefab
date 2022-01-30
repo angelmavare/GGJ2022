@@ -113,7 +113,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4398769579384395427}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 530bf774faab7e84298a9893f306617d, type: 3}
   m_Name: 
@@ -129,6 +129,32 @@ MonoBehaviour:
   soundAttackBlue: {fileID: 0}
   soundAttackLongRed: {fileID: 0}
   soundAttackLongBlue: {fileID: 0}
+  blueDynamic: {fileID: 0}
+  redDynamic: {fileID: 0}
+  redButtonPositions:
+  - {x: -809, y: 5, z: 0}
+  - {x: -481, y: 351, z: 0}
+  - {x: -699, y: -294, z: 0}
+  - {x: -249, y: -294, z: 0}
+  redButtonTexts:
+  - D
+  - W
+  - A
+  - S
+  blueButtonPositions:
+  - {x: 810, y: -5, z: 0}
+  - {x: 481, y: 351, z: 0}
+  - {x: 699, y: -294, z: 0}
+  - {x: 249, y: -294, z: 0}
+  blueButtonTexts:
+  - "\u2190"
+  - "\u2191"
+  - "\u2192"
+  - "\u2193"
+  redKey: 
+  blueKey: 
+  timeToChangeButton: 5
+  timeToStart: 3
 --- !u!61 &4398769579384395432
 BoxCollider2D:
   m_ObjectHideFlags: 0

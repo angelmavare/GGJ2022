@@ -210,51 +210,60 @@ private void Awake()
         }
         UpdateTimerStart();
         if (fightHasStarted) {
-            switch(redKey) 
-            {
-                case "W":
-                    if (Input.GetKeyDown(KeyCode.W)) {
-                        ButtonClick("red");
-                    }
-                    break;
-                case "D":
-                    if (Input.GetKeyDown(KeyCode.D)) {
-                        ButtonClick("red");
-                    }   
-                    break;
-                case "S":
-                    if (Input.GetKeyDown(KeyCode.S)) {
-                        ButtonClick("red");
-                    }
-                    break;
-                case "A":
-                    if (Input.GetKeyDown(KeyCode.A)) {
-                        ButtonClick("red");
-                    }
-                    break;
+            if (this.gameObject.name == "DuelistRed") {
+                switch(redKey) 
+                {
+                    case "W":
+                        if (Input.GetKeyDown(KeyCode.W)) {
+                            Debug.Log("pressed W");
+                            ButtonClick("red");
+                        }
+                        break;
+                    case "D":
+                        if (Input.GetKeyDown(KeyCode.D)) {
+                            Debug.Log("pressed D");
+                            ButtonClick("red");
+                        }   
+                        break;
+                    case "S":
+                        if (Input.GetKeyDown(KeyCode.S)) {
+                            Debug.Log("pressed S");
+                            ButtonClick("red");
+                        }
+                        break;
+                    case "A":
+                        if (Input.GetKeyDown(KeyCode.A)) {
+                            Debug.Log("pressed A");
+                            ButtonClick("red");
+                        }
+                        break;
+                }
             }
-            switch(blueKey) 
-            {
-                case "↑":
-                    if (Input.GetKeyDown(KeyCode.UpArrow)) {
-                        ButtonClick("blue");
-                    }
-                    break;
-                case "←":
-                    if (Input.GetKeyDown(KeyCode.LeftArrow)) {
-                        ButtonClick("blue");
-                    }   
-                    break;
-                case "→":
-                    if (Input.GetKeyDown(KeyCode.RightArrow)) {
-                        ButtonClick("blue");
-                    }
-                    break;
-                case "↓":
-                    if (Input.GetKeyDown(KeyCode.DownArrow)) {
-                        ButtonClick("blue");
-                    }
-                    break;
+            if (this.gameObject.name == "DuelistBlue") {
+                Debug.Log(blueKey);
+                switch(blueKey) 
+                {
+                    case "↑":
+                        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+                            ButtonClick("blue");
+                        }
+                        break;
+                    case "←":
+                        if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+                            ButtonClick("blue");
+                        }   
+                        break;
+                    case "→":
+                        if (Input.GetKeyDown(KeyCode.RightArrow)) {
+                            ButtonClick("blue");
+                        }
+                        break;
+                    case "↓":
+                        if (Input.GetKeyDown(KeyCode.DownArrow)) {
+                            ButtonClick("blue");
+                        }
+                        break;
+                }
             }
         }
         
@@ -277,10 +286,6 @@ private void Awake()
 
     private void ShowDynamics()
     {
-        /*blueDynamic = GameObject.FindGameObjectWithTag("BlueDynamic");
-        blueDynamic.GetComponent<Renderer>().enabled = true;
-        redDynamic = GameObject.FindGameObjectWithTag("RedDynamic");
-        redDynamic.GetComponent<Renderer>().enabled = true;*/
         blueDynamic.SetActive(true);
         redDynamic.SetActive(true);
     }
@@ -326,18 +331,24 @@ private void Awake()
 
     void UpdateButtonPositions()
     {
-        var redButton = GameObject.FindGameObjectWithTag("RedButton");
-        var blueButton = GameObject.FindGameObjectWithTag("BlueButton");
-        var redButtonText = GameObject.FindGameObjectWithTag("RedButtonText");
-        var blueButtonText = GameObject.FindGameObjectWithTag("BlueButtonText");
-        int blueIndex = Random.Range(0, 3);
-        int redIndex = Random.Range(0, 3);
-        redButton.transform.localPosition = redButtonPositions[redIndex];
-        blueButton.transform.localPosition = blueButtonPositions[blueIndex];
-        redKey = redButtonTexts[redIndex];
-        blueKey = blueButtonTexts[blueIndex];
-        redButtonText.GetComponent<UnityEngine.UI.Text>().text = redKey;
-        blueButtonText.GetComponent<UnityEngine.UI.Text>().text = blueKey;
+        if (this.gameObject.name == "DuelistBlue") {
+            var blueButton = GameObject.FindGameObjectWithTag("BlueButton");
+            var blueButtonText = GameObject.FindGameObjectWithTag("BlueButtonText");
+            int blueIndex = Random.Range(0, 3);
+            blueButton.transform.localPosition = blueButtonPositions[blueIndex];
+            blueKey = blueButtonTexts[blueIndex];
+            blueButtonText.GetComponent<UnityEngine.UI.Text>().text = blueKey;
+        }
+        if (this.gameObject.name == "DuelistRed") {
+            var redButton = GameObject.FindGameObjectWithTag("RedButton");
+            var redButtonText = GameObject.FindGameObjectWithTag("RedButtonText");
+            int redIndex = Random.Range(0, 3);
+            redButton.transform.localPosition = redButtonPositions[redIndex];
+            redKey = redButtonTexts[redIndex];
+            redButtonText.GetComponent<UnityEngine.UI.Text>().text = redKey;
+        }
+        
+        
     }
 
 }

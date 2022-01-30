@@ -2259,6 +2259,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2178754674854691904, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178754674854691904, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.21
       objectReference: {fileID: 0}
@@ -2298,6 +2302,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2178754674854691905, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4914122931144697388, guid: 006be5f42e0e14149b9bc268d3248674, type: 3}
+    - target: {fileID: 2178754674854691905, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2178754674854691907, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
       propertyPath: TXTScoreRed
       value: 
@@ -2322,6 +2334,14 @@ PrefabInstance:
       propertyPath: soundAttackLongBlue
       value: 
       objectReference: {fileID: 7293819478769257283, guid: 4fcc16138af5f374da19225a37381453, type: 3}
+    - target: {fileID: 2178754674854691911, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.4105868
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178754674854691911, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.5299997
+      objectReference: {fileID: 0}
     - target: {fileID: 2178754674854691916, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
       propertyPath: m_Name
       value: DuelistBlue

@@ -10,6 +10,9 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.SetInt("HighScoreRed", 0);
         PlayerPrefs.SetInt("HighScoreBlue", 0);
+        if (!PlayerPrefs.HasKey("Difficulty")) {
+            PlayerPrefs.SetString("Difficulty", "hard");
+        }
     }
 
     // Update is called once per frame

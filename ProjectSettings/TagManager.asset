@@ -18,6 +18,7 @@ TagManager:
   - BlueButtonText
   - BlueVictory
   - RedVictory
+  - TimerStart
   layers:
   - Default
   - TransparentFX

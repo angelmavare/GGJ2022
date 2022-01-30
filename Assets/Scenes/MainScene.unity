@@ -2532,19 +2532,19 @@ PrefabInstance:
     - target: {fileID: 2178754674854691907, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
       propertyPath: soundAttackRed
       value: 
-      objectReference: {fileID: 5790468130049107307, guid: 116df1d7743fb0b41942f31110179dbe, type: 3}
+      objectReference: {fileID: 464276142296135690, guid: 8beb23b8e9d004063ac4cdd4c6de098e, type: 3}
     - target: {fileID: 2178754674854691907, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
       propertyPath: soundAttackBlue
       value: 
-      objectReference: {fileID: 5245924166094907378, guid: 2915a31cae24af245a430ffb16d010f3, type: 3}
+      objectReference: {fileID: 6076106434913981743, guid: ddfc9e4a813d64c758bd91da2f78923d, type: 3}
     - target: {fileID: 2178754674854691907, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
       propertyPath: soundAttackLongRed
       value: 
-      objectReference: {fileID: 7293819478769257283, guid: 4fcc16138af5f374da19225a37381453, type: 3}
+      objectReference: {fileID: 8395406917421971982, guid: ced381a10d0d9439aabeed925361846f, type: 3}
     - target: {fileID: 2178754674854691907, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
       propertyPath: soundAttackLongBlue
       value: 
-      objectReference: {fileID: 7293819478769257283, guid: 4fcc16138af5f374da19225a37381453, type: 3}
+      objectReference: {fileID: 1757883540195887988, guid: 23ae2cd16fe3148cb8a548285648b98e, type: 3}
     - target: {fileID: 2178754674854691911, guid: efe34fe9212c01a44a1bf5f7c8f51f88, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 2.4105868
@@ -2629,18 +2629,18 @@ PrefabInstance:
     - target: {fileID: 4398769579384395431, guid: f3e32a3a504576d4ab9914f562b57c41, type: 3}
       propertyPath: soundAttackRed
       value: 
-      objectReference: {fileID: 5790468130049107307, guid: 116df1d7743fb0b41942f31110179dbe, type: 3}
+      objectReference: {fileID: 464276142296135690, guid: 8beb23b8e9d004063ac4cdd4c6de098e, type: 3}
     - target: {fileID: 4398769579384395431, guid: f3e32a3a504576d4ab9914f562b57c41, type: 3}
       propertyPath: soundAttackBlue
       value: 
-      objectReference: {fileID: 5245924166094907378, guid: 2915a31cae24af245a430ffb16d010f3, type: 3}
+      objectReference: {fileID: 6076106434913981743, guid: ddfc9e4a813d64c758bd91da2f78923d, type: 3}
     - target: {fileID: 4398769579384395431, guid: f3e32a3a504576d4ab9914f562b57c41, type: 3}
       propertyPath: soundAttackLongRed
       value: 
-      objectReference: {fileID: 7293819478769257283, guid: 4fcc16138af5f374da19225a37381453, type: 3}
+      objectReference: {fileID: 8395406917421971982, guid: ced381a10d0d9439aabeed925361846f, type: 3}
     - target: {fileID: 4398769579384395431, guid: f3e32a3a504576d4ab9914f562b57c41, type: 3}
       propertyPath: soundAttackLongBlue
       value: 
-      objectReference: {fileID: 7293819478769257283, guid: 4fcc16138af5f374da19225a37381453, type: 3}
+      objectReference: {fileID: 1757883540195887988, guid: 23ae2cd16fe3148cb8a548285648b98e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3e32a3a504576d4ab9914f562b57c41, type: 3}

@@ -205,7 +205,9 @@ private void Awake()
 
     private void Update()
     {
-        UpdateTimer();
+        if(PlayerPrefs.GetString("Difficulty") == "hard") {
+            UpdateTimer();
+        }
         UpdateTimerStart();
         if (fightHasStarted) {
             switch(redKey) 

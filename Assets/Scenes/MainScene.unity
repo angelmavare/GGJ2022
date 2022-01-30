@@ -469,6 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   variableTest: 
+  timeToStart: 3
 --- !u!1 &322678996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,7 +1383,7 @@ GameObject:
   - component: {fileID: 684037971}
   - component: {fileID: 684037970}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Countdown
   m_TagString: TimerStart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1479,6 +1480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   variableTest: 
+  timeToStart: 3
 --- !u!4 &763067066
 Transform:
   m_ObjectHideFlags: 0
@@ -1916,7 +1918,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508886844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0656, y: 3.36, z: 0}
+  m_LocalPosition: {x: 0.0656, y: 3.51, z: 0}
   m_LocalScale: {x: 7.7426033, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

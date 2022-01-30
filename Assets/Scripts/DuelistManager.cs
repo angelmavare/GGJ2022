@@ -134,10 +134,11 @@ private void Awake()
             {
                 scoreRed++;
                 PlayerPrefs.SetInt("HighScoreRed", scoreRed);
-                
             }
-
-            SceneManager.LoadScene("MainScene");
+            AudioSource audio = gameObject.AddComponent<AudioSource >();
+            audio.PlayOneShot((AudioClip)Resources.Load("yame"));
+            Invoke("GoToMainScene", 1f);
+            
             // aviso.SetActive(true);
             //GameObject.FindGameObjectWithTag("PlayerRed").transform.position = originalPosRed;
             //GameObject.FindGameObjectWithTag("PlayerBlue").transform.position = originalPosBlue;
@@ -145,7 +146,9 @@ private void Awake()
         
 }
 
-
+public void GoToMainScene(){
+    SceneManager.LoadScene("MainScene");
+}
 
     public void ButtonClick(string ch) {
         if (ch == "" || ch == null) {
@@ -215,32 +218,27 @@ private void Awake()
                 {
                     case "W":
                         if (Input.GetKeyDown(KeyCode.W)) {
-                            Debug.Log("pressed W");
                             ButtonClick("red");
                         }
                         break;
                     case "D":
                         if (Input.GetKeyDown(KeyCode.D)) {
-                            Debug.Log("pressed D");
                             ButtonClick("red");
                         }   
                         break;
                     case "S":
                         if (Input.GetKeyDown(KeyCode.S)) {
-                            Debug.Log("pressed S");
                             ButtonClick("red");
                         }
                         break;
                     case "A":
                         if (Input.GetKeyDown(KeyCode.A)) {
-                            Debug.Log("pressed A");
                             ButtonClick("red");
                         }
                         break;
                 }
             }
             if (this.gameObject.name == "DuelistBlue") {
-                Debug.Log(blueKey);
                 switch(blueKey) 
                 {
                     case "↑":
@@ -314,18 +312,9 @@ private void Awake()
     void UpdateTimerStart()
     {
         timerStart -= Time.deltaTime;
-        var timerText = GameObject.FindGameObjectWithTag("TimerStart");
-        
         if(((int)timerStart) < 0)
         {
-            timerText.GetComponent<UnityEngine.UI.Text>().text = "";
             fightHasStarted = true;
-        }
-        else if (((int)timerStart) == 0) {
-            timerText.GetComponent<UnityEngine.UI.Text>().text = "FIGHT!";
-        }
-        else {
-            timerText.GetComponent<UnityEngine.UI.Text>().text = ((int)timerStart).ToString();
         }
     }
 

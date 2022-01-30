@@ -62,6 +62,8 @@ public class DuelistManager : MonoBehaviour
         "→",
         "↓"
     };
+    public string redKey;
+    public string blueKey;
     [SerializeField] float timeToChangeButton = 5f;
     float timerValue;
     //public GameObject aviso;
@@ -94,8 +96,9 @@ public class DuelistManager : MonoBehaviour
             new Vector3(-249,-294,0),
         };
         redButton.transform.localPosition = redButtonPositions[0];
+        redKey = "D";
         blueButton.transform.localPosition = blueButtonPositions[0];
-
+        blueKey = "←";
     }
 
 private void Awake()
@@ -197,23 +200,56 @@ private void Awake()
     private void Update()
     {
         UpdateTimer();
-        if (Input.GetKeyDown(KeyCode.W)) {
-
-            ButtonClick("red");
-            //Instantiate(soundAttackRed);
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        switch(redKey) 
         {
-
-            ButtonClick("blue");
-            //Instantiate(soundAttackBlue);
+            case "W":
+                if (Input.GetKeyDown(KeyCode.W)) {
+                    ButtonClick("red");
+                }
+                break;
+            case "D":
+                if (Input.GetKeyDown(KeyCode.D)) {
+                    ButtonClick("red");
+                }   
+                break;
+            case "S":
+                if (Input.GetKeyDown(KeyCode.S)) {
+                    ButtonClick("red");
+                }
+                break;
+            case "A":
+                if (Input.GetKeyDown(KeyCode.A)) {
+                    ButtonClick("red");
+                }
+                break;
         }
-
+        switch(blueKey) 
+        {
+            case "↑":
+                if (Input.GetKeyDown(KeyCode.UpArrow)) {
+                    ButtonClick("blue");
+                }
+                break;
+            case "←":
+                if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+                    ButtonClick("blue");
+                }   
+                break;
+            case "→":
+                if (Input.GetKeyDown(KeyCode.RightArrow)) {
+                    ButtonClick("blue");
+                }
+                break;
+            case "↓":
+                if (Input.GetKeyDown(KeyCode.DownArrow)) {
+                    ButtonClick("blue");
+                }
+                break;
+        }
         TXTScoreRed.text = ""+scoreRed;
         TXTScoreBlue.text = ""+scoreBlue;
 
     }
-
     private void FixedUpdate()
     {
         rb2D.MovePosition(targetPosition);
@@ -260,15 +296,18 @@ private void Awake()
 
     void UpdateButtonPositions()
     {
-        Debug.Log("updating");
         var redButton = GameObject.FindGameObjectWithTag("RedButton");
         var blueButton = GameObject.FindGameObjectWithTag("BlueButton");
+        var redButtonText = GameObject.FindGameObjectWithTag("RedButtonText");
+        var blueButtonText = GameObject.FindGameObjectWithTag("BlueButtonText");
         int blueIndex = Random.Range(0, 3);
         int redIndex = Random.Range(0, 3);
-        Debug.Log(redButtonPositions[redIndex]);
-        Debug.Log(blueButtonPositions[blueIndex]);
         redButton.transform.localPosition = redButtonPositions[redIndex];
         blueButton.transform.localPosition = blueButtonPositions[blueIndex];
+        redKey = redButtonTexts[redIndex];
+        blueKey = blueButtonTexts[blueIndex];
+        redButtonText.GetComponent<UnityEngine.UI.Text>().text = redKey;
+        blueButtonText.GetComponent<UnityEngine.UI.Text>().text = blueKey;
     }
 
 }

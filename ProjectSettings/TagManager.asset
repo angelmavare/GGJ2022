@@ -10,6 +10,14 @@ TagManager:
   - AreaBlue
   - ScoreRed
   - ScoreBlue
+  - RedDynamic
+  - BlueDynamic
+  - RedButton
+  - RedButtonText
+  - BlueButton
+  - BlueButtonText
+  - BlueVictory
+  - RedVictory
   layers:
   - Default
   - TransparentFX

@@ -17,10 +17,11 @@ Game developed in the global game jam 2022
 
 Jam Site: Lara Game Jam 2022
 
+- [Download Link for Windows](https://ggj.s3.amazonaws.com/games/2022/01/300804/exec/67HC0/kawaiifightersggj2022.zip)
 
 ## Authors
 
-- Angel Mavare [@angelmavare](https://www.instagram.com/angelmavare/?hl=es)
+
 - Oscar Saavedra [@Oz163](https://github.com/Oz163)
 - Nelson Mavare [@clowth](https://www.instagram.com/clowth/?hl=es)
 - Freidy Salazar [@freysalazart](https://www.instagram.com/freysalazart/?hl=es)

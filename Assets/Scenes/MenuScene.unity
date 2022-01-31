@@ -1150,7 +1150,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1147666803}
   - component: {fileID: 1147666802}
-  - component: {fileID: 1147666804}
   m_Layer: 0
   m_Name: MusicaMenu
   m_TagString: Untagged
@@ -1268,18 +1267,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1147666804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147666801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9fb55af31fd82c479dffb4fbd80826b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1464171226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,7 +1704,7 @@ Transform:
   m_GameObject: {fileID: 1768104941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 2.4, y: 2.9, z: 1}
   m_Children: []
   m_Father: {fileID: 1816110946}
   m_RootOrder: 0
@@ -1762,8 +1749,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: da5ffee695c4d8c469f95a85d5739468, type: 3}
-  m_Color: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1428bc2ae5c27564e94363c161bf90d4, type: 3}
+  m_Color: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

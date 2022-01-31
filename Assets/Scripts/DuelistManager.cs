@@ -70,6 +70,10 @@ public class DuelistManager : MonoBehaviour
     float timerStart;
     private bool fightHasStarted;
 
+
+    private Animator animator;
+    public Vector2 direccion;
+
     //public GameObject aviso;
 
     // Start is called before the first frame update
@@ -105,6 +109,8 @@ public class DuelistManager : MonoBehaviour
         redKey = "D";
         blueButton.transform.localPosition = blueButtonPositions[0];
         blueKey = "←";
+
+        animator = GetComponent<Animator>();
     }
 
 private void Awake()
@@ -183,7 +189,13 @@ public void GoToMainScene(){
         if (ch == "red") {
             soundAttackCountRed++;
             laneTarget = 50;
+            animator.SetTrigger("attackred");
             Instantiate(soundAttackRed);
+            //AnimarMovimiento(direccion);
+            
+            //animator.Play("AttackBlue");
+
+
             if (soundAttackCountRed > 6) {
                 Instantiate(soundAttackLongRed);
                 soundAttackCountRed = 0;
@@ -192,7 +204,9 @@ public void GoToMainScene(){
         else if(ch == "blue" ){
             soundAttackCountBlue++;
             laneTarget = -50;
+            animator.SetTrigger("attackblue");
             Instantiate(soundAttackBlue);
+            //AnimarMovimiento(direccion);
             if (soundAttackCountBlue > 6)
             {
                 Instantiate(soundAttackLongBlue);
@@ -208,7 +222,15 @@ public void GoToMainScene(){
 
     private void Update()
     {
-        if(PlayerPrefs.GetString("Difficulty") == "hard") {
+        if (character == "blue") {
+            animator.SetTrigger("standblue");
+        }
+        else if(character == "red"){
+            animator.SetTrigger("standred");
+        }
+        
+       
+        if (PlayerPrefs.GetString("Difficulty") == "hard") {
             UpdateTimer();
         }
         UpdateTimerStart();
@@ -338,6 +360,11 @@ public void GoToMainScene(){
         }
         
         
+    }
+
+    public void AnimarMovimiento(Vector2 direccion) {
+        animator.SetFloat("x", direccion.x);
+
     }
 
 }

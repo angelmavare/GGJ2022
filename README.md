@@ -20,9 +20,9 @@ Jam Site: Lara Game Jam 2022
 - [Download Link for Windows](https://ggj.s3.amazonaws.com/games/2022/01/300804/exec/67HC0/kawaiifightersggj2022.zip)
 
 The Online Demo has somo problems in this version but you can watch the game
-- [Demo-Online](https://hackapoo.itch.io/kawaii-fighters) 
+- [Online-Demo](https://hackapoo.itch.io/kawaii-fighters) 
 
-- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `For the web demo put it in easy mode and play with the keys "D" and "Arrow left"`
+![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `For the Online-Demo put it in easy mode and play with the keys "D" and "Arrow left"`
 
 ## Authors
 

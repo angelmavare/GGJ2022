@@ -22,6 +22,8 @@ Jam Site: Lara Game Jam 2022
 The Online Demo has somo problems in this version but you can watch the game
 - [Demo-Online](https://hackapoo.itch.io/kawaii-fighters) 
 
+- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `For the web demo put it in easy mode and play with the keys "D" and "Arrow left"`
+
 ## Authors
 
 

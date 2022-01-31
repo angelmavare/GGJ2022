@@ -1346,7 +1346,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Marco Padua
+  m_Text: "Marco P\xE9rez"
 --- !u!222 &1275102803
 CanvasRenderer:
   m_ObjectHideFlags: 0
